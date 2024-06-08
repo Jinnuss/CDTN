@@ -61,7 +61,7 @@ function CreateJob() {
       {contextHolder}
 
       <GoBack />
-      
+
       <h1>Tạo job mới</h1>
       <Form
         onFinish={handleFinish}

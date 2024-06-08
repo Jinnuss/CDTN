@@ -1,6 +1,10 @@
-import { get } from "../utils/request";
-
+import { Getdb } from "../utils/request";
 export const getListCity = async () => {
-  const result = await get(`city`);
-  return result;
+  try {
+    const data = await Getdb('city');
+    return data;
+    // Sử dụng data ở đây
+  } catch (error) {
+    console.error('Error:', error);
+  }
 };

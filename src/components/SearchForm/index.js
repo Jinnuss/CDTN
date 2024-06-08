@@ -10,6 +10,7 @@ function SearchForm() {
   useEffect(() => {
     const fetchApi = async () => {
       const response = await getListCity();
+      console.log(response);
       if (response) {
         const objAll = {
           key: 0,

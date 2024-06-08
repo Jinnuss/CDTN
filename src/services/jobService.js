@@ -1,5 +1,5 @@
 import { del, get, patch, post } from "../utils/request";
-
+import { Getdb } from "../utils/request";
 export const createJob = async (options) => {
   const result = await post(`jobs`, options);
   return result;
@@ -16,16 +16,31 @@ export const deleteJob = async (id) => {
 };
 
 export const getListJob = async (id) => {
-  const result = await get(`jobs?idCompany=${id}`);
-  return result;
+  try {
+    const data = await Getdb(`jobs?idCompany=${id}`);
+    return data;
+    // Sử dụng data ở đây
+  } catch (error) {
+    console.error('Error:', error);
+  }
 };
 
 export const getDetailJob = async (id) => {
-  const result = await get(`jobs/${id}`);
-  return result;
+  try {
+    const data = await Getdb(`jobs/${id}`);
+    return data;
+    // Sử dụng data ở đây
+  } catch (error) {
+    console.error('Error:', error);
+  }
 };
 
 export const getAllJob = async () => {
-  const result = await get(`jobs`);
-  return result;
+  try {
+    const data = await Getdb('jobs');
+    return data;
+    // Sử dụng data ở đây
+  } catch (error) {
+    console.error('Error:', error);
+  }
 };

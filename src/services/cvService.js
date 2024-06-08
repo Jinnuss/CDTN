@@ -1,12 +1,12 @@
-import { del, get, patch, post } from "../utils/request";
+import { del, get1, patch, post } from "../utils/request";
 
 export const getListCV = async (id) => {
-  const result = await get(`cv?idCompany=${id}`);
+  const result = await get1(`cv?idCompany=${id}`);
   return result;
 };
 
 export const getDetailCV = async (id) => {
-  const result = await get(`cv/${id}`);
+  const result = await get1(`cv/${id}`);
   return result;
 };
 

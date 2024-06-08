@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { checkAuthen } from "../../actions/authentication";
 import { Button, Card, Col, Form, Input, Row, message } from "antd";
 import { rules } from "../../contants";
+import { login } from "../../services/companyService";
 
 function Login() {
   const navigate = useNavigate();
@@ -12,8 +13,9 @@ function Login() {
   const [messageApi, contextHolder] = message.useMessage();
 
   const onFinish = async (values) => {
-    const data = await company.login(values.email, values.password);
-    if (data.length > 0) {
+    console.log(values.email);
+    const data = await login(values.email, values.password);
+    if (data && data.length > 0) {
       const time = 1;
       setCookie("id", data[0].id, time);
       setCookie("companyName", data[0].companyName, time);
